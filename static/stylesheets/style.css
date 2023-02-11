@@ -1,9 +1,368 @@
+/*
+Fonts from Google Fonts
+
+Oswald - 200, 300, 400, 500, 600, 700
+Poppins - 100, 200, 300, 400, 500, 600, 700, 800, 900
+Montserrat - 200, 300, 400, 500, 600, 700, 800, 900
+Dancing Script - 400
+*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+/* ----------- Global CSS ----------- */
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
-body{
-    background-color: red;
+:root{
+    /* Color Variables */
+    --color-primary: #006eff;
+    --color-secondary: #6136fa;
+    --color-tertiary: #ff006f;
+    --general-hover: rgb(230, 230, 230);
+
+    --surface: rgb(255, 231, 179);
+
+    /* Font Variables */
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Oswald', sans-serif;
+    --font-tertiary: 'Montserrat', sans-serif;
+    --font-quaternary: 'Dancing Script', cursive;
 }
+
+
+
+/* -------------- Tag --------------- */
+
+body{
+    font-family: var(--font-primary);
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+
+
+/* -------------- Navbar ------------- */
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo img {
+	font-size: 2rem;
+	font-weight: 600;
+    font-family: var(--font-secondary);
+	color: var(--color-primary);
+	padding: 1rem 2rem;
+	height: 2.3em;
+}
+
+nav .ham-btn {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end;
+	padding: 8px;
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	margin: 0px 20px;
+}
+
+nav .ham-btn:hover{
+    background-color: var(--general-hover);
+    cursor: pointer;
+}
+
+nav .ham-btn .bar{
+    background-color: black;
+    border-radius: 10px;
+    height: 2px;
+    margin: 2px;
+}
+
+nav .ham-btn #topLine{
+    width: 100%;
+}
+
+nav .ham-btn #middleLine{
+    width: 70%;
+}
+
+/* Toggle Menu */
+
+.toggle-menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    background-color: var(--surface);
+    position: fixed;
+    z-index: 1000;
+}
+
+.show{
+    display: flex;
+    animation: showMenu .5s ease-in forwards;
+    opacity: 0;
+    height: 100vh;
+    width: 100vw;
+    top: 0px;
+    right: -100vw;
+}
+
+@keyframes showMenu{
+    0%{
+        opacity: 0;
+        right: -100vw;
+    }
+    100%{
+        opacity: 1;
+        right: 0px;
+    }
+}
+
+
+.hide{
+    display: flex;
+    animation: hideMenu .5s ease-in forwards;
+    height: 100vh;
+    width: 100vw;
+    top: 0px;
+    right: 0px;
+}
+
+
+@keyframes hideMenu{
+    0%{
+        opacity: 1;
+        height: 100vh;
+        width: 100vw;
+        top: 0px;
+        right: 0px;
+    }
+    
+    100%{
+        opacity: 0;
+        height: 0px;
+        width: 0px;
+        top: 0px;
+        right: -100vw;
+    }
+}
+
+.toggle-menu .close-btn a{
+    font-size: 30px;
+    color: red;
+    padding: 3px 13px;
+    border-radius: 50%;
+}
+
+.toggle-menu .close-btn a:hover{
+    background-color: var(--general-hover);
+    cursor: pointer;
+}
+
+.toggle-menu ul{
+    display: flex;
+    /* display: none; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggle-menu ul li{
+    margin: 1em;
+}
+
+.toggle-menu ul li a{
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: var(--font-primary);
+    padding: 1rem 2rem;
+    color: black;
+    border: none;
+    border-bottom: 2px solid transparent;
+    transition: 0.5s;
+}
+
+.toggle-menu ul li a:hover{
+    border-color: black;
+}
+
+/* -------------- Hero -------------- */
+
+.hero{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.hero img{
+    margin-right: 10em;
+    height: 100vh;
+}
+
+.hero .content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 80%;
+}
+
+.hero .content h1 {
+    text-align: center;
+	font-size: 8rem;
+	font-weight: 700;
+	font-family: var(--font-tertiary);
+	text-shadow: 5px 5px 1px var(--color-secondary);
+}
+
+.hero .content p {
+	font-size: 2rem;
+	font-style: italic;
+	font-family: var(--font-quaternary);
+	color: rgb(71, 71, 71);
+	margin: 44px 4rem;
+}
+
+.hero .content p span{
+	color: var(--color-tertiary);
+}
+
+.hero .content a {
+	color: var(--color-primary);
+	font-size: 50px;
+	width: 10%;
+	display: block;
+	margin-left: 1em;
+}
+
+.hero .content a i{
+    animation: arrowAnimation 1s infinite forwards ease-in-out;
+}
+
+@keyframes arrowAnimation{
+    from{
+        margin-left: 10px;
+    }
+    to{
+        margin-left: 100px;
+    }
+}
+
+
+
+
+
+/* -------------- Analysis Form -------------- */
+
+.analysis-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 5em auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px black;
+    width: 50%;
+    padding: 2em;
+    background-color: var(--surface);
+}
+
+.analysis-form h1{
+    font-size: 3rem;
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    margin: 1em 0;
+}
+
+.analysis-form .form-input{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 2em auto;
+}
+
+.analysis-form .form-input input{
+    width: 100%;
+    height: 2em;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 1.5rem;
+    font-family: var(--font-primary);
+    padding: 0.5em;
+    margin: 0.5em 0;
+    outline: none;
+}
+
+.analysis-form .form-input input:focus{
+    border-color: var(--color-primary);
+}
+
+.analysis-form .form-input select{
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 1rem;
+    font-family: var(--font-primary);
+    padding: 0.5em;
+    margin: 0.5em 0;
+    outline: none;
+}
+
+.analysis-form .form-input select:focus{
+    border-color: var(--color-primary);
+}
+
+.analysis-form button{
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: var(--font-primary);
+    padding: 0.5em;
+    margin: 0.5em 0;
+    outline: none;
+    background-color: var(--color-secondary);
+    color: white;
+    cursor: pointer;
+}
+
+
+
+/* ------------- Footer ------------ */
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 5em auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px black;
+    width: 50%;
+    padding: 2em;
+    background-color: var(--surface);
+}
+
