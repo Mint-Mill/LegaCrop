@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'includes/main/head.html' %}
+    <title>LegaCrop</title>
+</head>
+<body>
+    {% include 'includes/main/navbar.html' %}
+
+    <div class="analysis-form">
+        <h1>Analysis Form</h1>
+        <p>Fill the form below, so we can analyze the best suited crops for your fields.</p>
+        <form action="/analyze" method="POST">
+            <div class="name form-input">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter your name">
+            </div>
+            <div class="location form-input">
+                <label for="location">Location</label>
+                <input type="text" name="location" id="location" placeholder="Enter your location">
+            </div>
+            <div class="soil-type form-input">
+                <label for="soil-type">Soil Type</label>
+                <select name="soil-type" id="soil-type">
+                    <option value="clay">Clay</option>
+                    <option value="sandy">Sandy</option>
+                    <option value="loamy">Loamy</option>
+                    <option value="silty">Silty</option>
+                </select>
+            </div>
+            <div class="rainfall form-input">
+                <label for="rainfall">Rainfall</label>
+                <input type="text" name="rainfall" id="rainfall" placeholder="Enter your rainfall">
+            </div>
+            <div class="temperature form-input">
+                <label for="temperature">Temperature</label>
+                <input type="text" name="temperature" id="temperature" placeholder="Enter your temperature">
+            </div>
+            <button>Submit</button>
+        </form>
+    </div>
+    
+
+    {% include 'includes/main/footer.html' %}
+</body>
+</html>

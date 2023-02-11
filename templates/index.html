@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="/static/stylesheets/style.css">
-
+    {% include 'includes/main/head.html' %}
     <title>LegaCrop</title>
 </head>
 <body>
+    {% include 'includes/main/navbar.html' %}
 
-    <h1>Hello World</h1>
+    <div class="hero">
+        <img src="/static/assets/hero.png" alt="">
+        <div class="content">
+            <h1>Grow your crops with LegaCrop</h1>
+            <p><span>"</span> Get the best of your crops with LegaCrop, <br> We provide the best analysis for your soil <span>"</span></p>
+            <a href="/analyze" class="btn"><i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
     
 
-    <script src="/static/scripts/main.js"></script>
+    {% include 'includes/main/footer.html' %}
 </body>
 </html>
